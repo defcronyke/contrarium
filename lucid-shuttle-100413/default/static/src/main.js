@@ -11,6 +11,14 @@ directive('contrariumSearch', function() {
 
     return {
         restrict: 'E',
-        templateUrl: '/static/directives/contrarium_search/contrarium_search.html'
+        templateUrl: '/static/directives/contrarium_search/contrarium_search.html',
+        
+        controller: ['$scope', '$http', function($scope, $http) {
+            
+            $scope.DoSearch = function() {
+                ContrariumSearch($scope, $http, $scope.search_text);
+            };
+        }]
     };
 });
+
