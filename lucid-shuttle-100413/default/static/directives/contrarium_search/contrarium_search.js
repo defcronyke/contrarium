@@ -13,39 +13,23 @@ function ContrariumSearch($scope, $http, search_text) {
             
             var google_search_terms = antonyms.join('+');
             
-            /*
             var req = {
                 method: 'GET',
-                url: 'https://www.googleapis.com/customsearch/v1?q=hello+world&key=AIzaSyBBpQSa9YnyVZEn1dKUiG4YJx5KP9t2sN0'
+                url: 'https://www.googleapis.com/customsearch/v1?key=AIzaSyBBpQSa9YnyVZEn1dKUiG4YJx5KP9t2sN0&cx=008696593733086013386:hjbcz6in3hi&q=' + google_search_terms
             };
             
             $http(req).
             
             success(function(data, status) {
-                console.log('response: ' + data);
+                //console.log(data);
+                $scope.search_results = data;
             }).
             
             error(function(data, status) {
                 console.log('Google search error: ' + data + ' : ' + status);
             });
-            */
-            
-            
-            var xmlhttp = new XMLHttpRequest();
-            
-            xmlhttp.onreadystatechange = function() {
-                
-                if (xmlhttp.status == 200) {
-                    console.log(xmlhttp.responseText);
-                }
-            };
-            
-            xmlhttp.open("GET", 'https://www.googleapis.com/customsearch/v1?q=hello+world&key=AIzaSyBBpQSa9YnyVZEn1dKUiG4YJx5KP9t2sN0');
-            xmlhttp.send();
-            
             
             return;
-            
         }
     
         var req = {

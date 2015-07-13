@@ -1,7 +1,15 @@
 <div>
-    <input type="text" ng-model="search_text">
+    <input type="text" ng-model="search_text" ng-keyup="$event.keyCode == 13 && DoSearch()">
     <button ng-click="DoSearch()"> Go </button>
-    
     <span ng-bind="search_terms"></span>
+    
+    <div id="search_results">
+        <ol>
+            <li ng-repeat="(key, value) in search_results.items">
+                <a ng-href="{{ value.link }}">{{ value.title }}</a>
+                <p>{{ value.snippet }}</p>
+            </li>
+        </ol>
+    </div>
 </div>
 
